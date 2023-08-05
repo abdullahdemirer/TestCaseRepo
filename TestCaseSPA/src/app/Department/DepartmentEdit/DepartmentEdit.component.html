@@ -1,0 +1,33 @@
+<form #departmentEditForm="ngForm" (ngSubmit)="deparmentEdit(departmentEditForm)">
+  <h3>{{ title }}</h3>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Departman Kodu</label>
+    <div class="col-sm-6">
+      <input type="text" placeholder="Departman Kodu" #departmentCode="ngModel" [(ngModel)]="model.departmentCode" class="form-control"
+      class="form-control" name="departmentCode" id="departmentCode" oninput="this.value=this.value.replace(/[^0-9]/g,'')" required />
+      <div *ngIf="departmentCode.invalid&&departmentCode.dirty" class="alert alert-danger">
+        <p>Departman kodu gereklidir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row" style="margin-top: 10px;">
+    <label class="col-sm-2 col-form-label">Departman İsmi</label>
+    <div class="col-sm-6">
+      <input type="text" placeholder="Departman İsmi" #departmentName="ngModel" [(ngModel)]="model.departmentName" class="form-control"
+        name="departmentName" id="departmentName" required />
+      <div *ngIf="departmentName.invalid&&departmentName.dirty" class="alert alert-danger">
+        <p>Departman ismi gereklidir.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button class="btn btn-primary" *ngIf="!showUpdateButton" [disabled]="departmentEditForm.invalid">Ekle</button>
+      <button class="btn btn-primary" *ngIf="showUpdateButton" [disabled]="departmentEditForm.invalid">Güncelle</button>
+    </div>
+  </div>
+</form>

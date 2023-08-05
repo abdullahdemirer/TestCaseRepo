@@ -1,0 +1,24 @@
+<div *ngIf="showData">
+  <button type="button" class="btn btn-success"  (click)="addNewDepartment()"  style="margin-top:10px; margin-bottom: 10px;">Yeni Departman Ekle</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Departman Kodu</th>
+      <th scope="col">Deparmtman İsmi</th>
+      <th scope="col">İşlemler</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let departman of departmentList let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ departman.departmentCode }}</td>
+      <td>{{ departman.departmentName }}</td>
+      <td>
+        <button type="button" (click)="deleteDepartment(departman.id)" class="btn btn-danger" style="margin-right: 10px ;">Delete</button> 
+        <button type="button" (click)="updateDepartment(departman.id)" class="btn btn-info">Update</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>

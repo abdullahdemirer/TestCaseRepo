@@ -1,0 +1,87 @@
+<form #personEditForm="ngForm" (ngSubmit)="personEdit(personEditForm)">
+  <h3>{{ title }}</h3>
+  
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Personelin Sicil Numarası</label>
+    <div class="col-sm-6">
+      <input type="text" placeholder="Personel Sicil Numarası" #registrationNumber="ngModel" [(ngModel)]="model.registrationNumber" class="form-control"
+      class="form-control" name="registrationNumber" id="registrationNumber" oninput="this.value=this.value.replace(/[^0-9]/g,'')" required />
+      <div *ngIf="registrationNumber.invalid&&registrationNumber.dirty" class="alert alert-danger">
+        <p>Personelin sicil numarası gereklidir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row" style="margin-top: 10px;">
+    <label class="col-sm-2 col-form-label">Personelin Adı</label>
+    <div class="col-sm-6">
+      <input type="text" placeholder="Personelin Adı" #personelName="ngModel" [(ngModel)]="model.personelName" class="form-control"
+        name="personelName" id="personelName" required />
+      <div *ngIf="personelName.invalid&&personelName.dirty" class="alert alert-danger">
+        <p>Personelin adı gereklidir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row" style="margin-top: 10px;">
+    <label class="col-sm-2 col-form-label">Personelin Soyadı</label>
+    <div class="col-sm-6">
+      <input type="text" placeholder="Personelin Soyadı" #personelSurname="ngModel" [(ngModel)]="model.personelSurname" class="form-control"
+        name="personelSurname" id="personelSurname" required />
+      <div *ngIf="personelSurname.invalid&&personelSurname.dirty" class="alert alert-danger">
+        <p>Personelin soyadı gereklidir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row" style="margin-top: 10px;">
+    <label class="col-sm-2 col-form-label">Personelin Mail Adresi</label>
+    <div class="col-sm-6">
+      <input type="text" placeholder="Ürün Adı" #mail="ngModel" [(ngModel)]="model.mail" class="form-control"
+        name="mail" id="mail" required />
+      <div *ngIf="mail.invalid&&mail.dirty" class="alert alert-danger">
+        <p>Personelin mail adresi gereklidir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row" style="margin-top: 10px;">
+    <label class="col-sm-2 col-form-label">Personelin Cinsiyeti</label>
+    <div class="col-sm-6">
+      <input type="text" placeholder="Ürün Adı" #gender="ngModel" [(ngModel)]="model.gender" class="form-control"
+        name="gender" id="gender" required />
+      <div *ngIf="gender.invalid&&gender.dirty" class="alert alert-danger">
+        <p>Personelin cinsiyeti gereklidir.</p>
+      </div>
+    </div>
+  </div>
+
+  
+
+  
+  <div class="form-group row" style="margin-top: 10px;">
+    <label class="col-sm-2 col-form-label">Personelin Cep Telefonu Numarası</label>
+    <div class="col-sm-6">
+      <input type="number" placeholder="Ürün Miktarı" #mobilePhoneNumber="ngModel" [(ngModel)]="model.mobilePhoneNumber"
+        class="form-control" name="mobilePhoneNumber" id="mobilePhoneNumber" oninput="this.value=this.value.replace(/[^0-9]/g,'')" required />
+      <div *ngIf="mobilePhoneNumber.invalid&&mobilePhoneNumber.dirty" class="alert alert-danger">
+        <p>Personelin cep telefonu numarası gereklidir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row" style="margin-top: 10px;">
+    <label class="col-sm-2 col-form-label">Personelin Ev Telefon Numarası</label>
+    <div class="col-sm-6">
+      <input type="number" placeholder="Ürün Miktarı" #homePhoneNumber="ngModel" [(ngModel)]="model.homePhoneNumber"
+        class="form-control" name="homePhoneNumber" id="homePhoneNumber" oninput="this.value=this.value.replace(/[^0-9]/g,'')"  />
+     
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button class="btn btn-primary" [disabled]="personEditForm.invalid">Ekle</button>
+    </div>
+  </div>
+</form>

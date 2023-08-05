@@ -1,0 +1,44 @@
+<div *ngIf="showData">
+  <button type="button" (click)="addNewPersonel()" class="btn btn-success" style="margin-top:10px; margin-bottom: 10px;">Yeni Personel Ekle</button>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Sicil Numarası</th>
+      <th scope="col">Adı</th>
+      <th scope="col">Soyadı</th>
+      <th scope="col">Departman Kodu</th>
+      <th scope="col">Departman Adı</th>
+      <th scope="col">İşe Giriş Tarihi</th>
+      <th scope="col">İşten Çıkış Tarihi</th>
+      <th scope="col">Mail Adresi</th>
+      <th scope="col">Cinsiyeti</th>
+      <th scope="col">Cep Telefonu</th>
+      <th scope="col">Ev Telefonu</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr *ngFor = "let personel of personelList let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ personel.registrationNumber }}</td>
+      <td>{{ personel.personelName }}</td>
+      <td>{{ personel.personelSurname }}</td>
+      <td>{{ personel.departmentCode }}</td>
+      <td>{{ personel.departmentName }}</td>
+      <td>{{ personel.startDate | date:'dd-MM-yyyy'}}</td>
+      <td>{{ personel.endDate | date:'dd-MM-yyyy'}}</td>
+      <td>{{ personel.mail }}</td>
+      <td>{{ personel.gender }}</td>
+      <td>{{ personel.mobilePhoneNumber }}</td>
+      <td>{{ personel.homePhoneNumber }}</td>
+      <td>
+        <button type="button" (click)="deletePersonel(personel.id)"class="btn btn-danger" style="margin-right: 10px ;">Delete</button> 
+        <button type="button" (click)="updatePersonel(personel.id)" class="btn btn-info">Update</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
